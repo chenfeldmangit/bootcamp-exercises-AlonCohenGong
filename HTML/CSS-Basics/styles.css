@@ -1,0 +1,53 @@
+HTML {}
+BODY {
+    font-size: 15px;
+}
+
+#mainTableId {
+        font-size: 20px;
+        width: 900px;
+}
+
+LI {
+    list-style: none;
+}
+
+.title {
+    color:purple;
+}
+
+.navigation a,
+.navigation  a:visited,
+.navigation a:active {
+    color: #524F4F;
+}
+.navigation a:hover {
+    color: orange;
+    background-color: yellow;
+}
+
+.main-table,
+.table-column {
+    border: 1px solid  #524F4F; 
+}
+
+.main-table .table-column {
+    vertical-align: top;
+    background-color: #F2FFFF;
+} 
+
+.main-table .years-column {
+    vertical-align: top;
+    width: 100px;
+}
+
+H2.sub-titles {
+    text-align: left;
+    color: maroon;
+    padding-left: 20px;
+}
+
+.main-header {
+    text-align: center;
+    border-bottom: 1px solid red ;
+}

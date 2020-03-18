@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Update CV</title>
+    </head>
+    <body>
+        <header>
+            <center>
+                <h1>Update CV</h1>
+                <div><span><a href="./cv.html">Portfolio</a></span>&#160;|&#160;
+                     <span><a href="./form.html">Update CV</a></span>&#160;|&#160;
+                     <span><a href="./table.html">Recomondations</a></span>&#160;</div>
+            </center>
+        </header>
+        <main>
+            <center>
+                <div>
+                    <h2>Here you can update your cv and more and more more  </h2>
+                </div>
+                <div>
+                <form action="#" method="post">
+                    <fieldset tabindex="1">
+                        <legend>Personal Info:</legend>
+                        <lable for="fName">First name:</lable><em>*</em>
+                        <input type="text" id="fName" name="fName" required>
+                        &nbsp;&nbsp;
+                        <lable for="fName">Last name:</lable><em>*</em>
+                        <input type="text" id="fLast" name="fLast" required>
+                        <br/><br/>
+                        <lable for="fName">Age:</lable>
+                        <input type="number" id="fAge" name="fAge">
+
+                        <label >Select Your Gender:</label>
+                        <select id="tGender" name="gender">
+                            <option value="Mail">Mail</option>
+                            <option value="Femail" selected>Femail</option>
+                        </select>    
+                    </fieldset>
+                    <br/><br/>
+                    <fieldset tabindex="2">
+                        <legend>Contact Info:</legend>
+                        <lable for="fTel">Phone #:</lable>
+                        <input type="tel" id="fTel" name="phone" pattern="[0-9]{3}-[0-9]{3}[0-9]{2}[0-9]{2}">
+                        &nbsp;&nbsp;
+                        <lable for="fEmail">Email:</lable><em>*</em>
+                        <input type="email" id="fEmail" name="fEmail" required>
+                        <br/><br/>
+                    </fieldset>
+                    <fieldset tabindex="2">
+                        <legend>More:</legend>
+                        <lable for="fTel">color:</lable>
+                        <input type="color" id="fcoor" name="color">
+                        &nbsp;&nbsp;<br/>
+                        <lable for="fStatus">Status:</lable><br>
+                        <input type="radio" id="single" name="status" value="single">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="married" name="status" value="marries">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="other" name="status" value="other">
+                        <label for="other">Other</label>
+                        <br/><br/>
+                    </fieldset>                    
+                    <br/><br/><br/><br/>
+                    <div>
+                        <button type="submit" value="SUBMIT" name=submit > SUBMIT</button>
+                        <button type="reset" value="RESET" name=submit > RESET </button>
+                    </div>
+                </form>
+            </div>
+                <hr/>
+            </center>
+        </main>
+        
+    </body>
+</html>
