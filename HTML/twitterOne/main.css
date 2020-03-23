@@ -1,25 +1,31 @@
 BODY {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style: 16px;
+    font-size: 16px;
+    border: 1px solid grey;
 }
 .main {
     
-    width: 100%;
-    max-width: 1000px;
+    width: 80em;
+    max-width: 1300px;
     margin: auto;
+    display: flex;
+    justify-content: space-around;
 }
 .naviation-wrapper {
-    width: 200px;
-    float: left;
+    #width: 12em;
+    flex-grow: 0.5;
+    #float: left;
 }
 .news-feed-wrapper {
-    width: 600px;
-    float: left;
+    #width: 40em;
+    flex-grow: 2;
+    #float: left;
     border: 1px solid #E6ECF0;
 }
 .trends-wrapper {
-    width: 300;
-    float: left;
+    #width: 25em;
+    flex-grow: 1;
+    #float: left;
 }
 
 .button {
@@ -27,7 +33,7 @@ BODY {
     border: none;
     border-radius: 9999px;
     color: white;
-    padding: 15px 30px;
+    padding: 1em 2em;
     text-align: center;
     text-decoration: none;
     font-size: 1em;
