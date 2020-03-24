@@ -14,13 +14,19 @@ BODY {
     display: flex;
     justify-content: space-around;
 
-    
+
     .naviation-wrapper {
         //width: 12em;
         //float: left;
         flex-grow: 0.5;
     }
-
+    .profile-wrapper {
+        display:none;
+        //width: 40em;
+        flex-grow: 2;
+        //float: left;
+        border: 1px solid #E6ECF0;
+    }
     .news-feed-wrapper {
         //width: 40em;
         flex-grow: 2;
@@ -33,31 +39,24 @@ BODY {
         //float: left;
     }
     
-    .button {
-        background-color: $tweet-color;
-        border: none;
-        border-radius: 9999px;
-        color: white;
-        padding: 1em 2em;
-        text-align: center;
-        text-decoration: none;
-        font-size: 1em;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: $tweet-color-hover;
-    }
-    
-    .tweeter-logo {
-        color: $tweet-color-light;
-        width: 40px;
-        fill: $tweet-color-light;
-    }
-
+    //media
     @media only screen and (max-width: 599px) {
         .button {
             color: $grey-color-light;
         }
     }
+}
+
+.button {
+    @include big-button();
+}
+
+.tweeter-logo {
+    color: $tweet-color-light;
+    width: 40px;
+    fill: $tweet-color-light;
+}
+
+.templates {
+    display: none;
 }

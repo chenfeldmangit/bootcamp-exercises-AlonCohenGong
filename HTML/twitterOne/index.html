@@ -6,7 +6,12 @@
         <link rel="stylesheet" type="text/css" href="./css/nav.css">
         <link rel="stylesheet" type="text/css" href="./css/news.css">
         <link rel="stylesheet" type="text/css" href="./css/trends.css">
+        <link rel="stylesheet" type="text/css" href="./css/profile.css">
+        <link rel="stylesheet" type="text/css" href="./css/editProfile.css">
+        <link rel="stylesheet" type="text/css" href="./css/modal.css">
 
+        <script type="text/javascript" src="./js/myScripts.js"></script>
+        <script type="text/javascript" src="./js/template.js"></script>
     </head>
     <body>
         <header>
@@ -22,7 +27,7 @@
                     </div>
                     <div class="navigation">
                         <nav class="nav-item-element">
-                            <a href=#>
+                            <a  href=javascript:; onClick="navItemHandler('home'); return false;">
                                 <div class="nav-item">
                                     <div class="nav-icon"><img src="./assets/home.svg" alt="home ..."></div>
                                     <div class="nav-text">Home</div>
@@ -46,6 +51,13 @@
                                     <div class="nav-text">Messages</div>
                                 </div>
                             </a>
+                            <a href=javascript:; onClick="navItemHandler('profile'); return false;">
+                                <div class="nav-item">
+                                    <div class="nav-icon"><img src="./assets/explore.svg" alt="Profile ..."></div>
+                                    <div class="nav-text">Profile</div>
+                                </div>
+                            </a>
+
                             <a href=#>
                                 <div class="nav-item">
                                     <div class="nav-icon"><img src="./assets/bookmarks.svg" alt="home ..."></div>
@@ -58,6 +70,54 @@
                         </nav>
                     </div>
                 </div>
+                <!-- profile -->
+                <div class="profile-wrapper">
+                    <div class="header">
+                        <div class="header-text">Rambo 3</div>
+                        <div class="header-subtext">230 tweets</div>
+                        <div class="header-icon"><a href=#><img src="./assets/post.svg" alt="post ..."></a></div>
+                    </div>
+                    <div class="feed-item-top profile-top">
+                        <div class="img-back">
+                            <img src="./assets/acidparty.jpg" alt="profile image">
+                        </div>
+                        <div class="img-back-bottom-row">
+                            <div class="img-col">
+                                <a href=#><img src="./assets/me.jpg" alt="profile image"></a>
+                            </div>
+                            <div class="img-back-bottom-row-button">
+                                <button class="button" onClick="editProfileHandler()">Edit Profile</button>
+                            </div>                            
+                        </div>
+                        <div class="story-col">
+                            <div class="feed-item-top-profile">
+                                    <div class="icone-list">
+                                        <div class="icon-e tweet"><a href=#>Tweets</a></div>
+                                        <div class="icon-e"><a href=#>Tweets & replies</a></div>
+                                        <div class="icon-e"><a href=#>Media</a></div>
+                                        <div class="icon-e"><a href=#>Likes</a></div>
+                                    </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+            <!-- start of template -->
+            <div id="feed-item-template">
+        
+            </div>
+            <!-- end of template -->
+
+
+                    <!-- end of new box header -->
+                    <div class="feed-item ">
+                        Who to Folllow                        
+                    </div>
+
+                
+                    <!-- end of profile  box-->                                        
+                </div>
+
+                <!-- news -->
                 <div class="news-feed-wrapper">
                     <div class="header">
                         <div class="header-text">Home</div>
@@ -121,7 +181,7 @@
                         
                     </div>
 
-                    <!-- end of new  box-->
+                    <!-- end of news  box-->
                     <div class="feed-item ">
                         <div class="img-col">
                             <a href=#><img src="./assets/deri.jpg" alt="profile image"></a>
@@ -177,6 +237,8 @@
 
                     <!-- end of new  box-->                                        
                 </div>
+
+                <!-- Trends start-->
                 <div class="trends-wrapper">
                     <div class="search-box">
                         <input class="search-box-input" type="input" placeholder="Follow ...">
@@ -238,7 +300,87 @@
 
             </div>
         </main>
-    
+
+
+        <div id="modal-back" class="modal-back close">            
+            <div class="modal profile-wrapper" id="modal">
+                <div class="header">
+                    <div class="closex" onClick="editProfileCloseHandler();">X</div>
+                    <div class="title">Edit Profile</div>
+                    <div class="space"></div>
+                    <div class="save"><button class="button">Save</button></div>
+                </div>
+
+                <div class="feed-item-top profile-top">
+                    <div class="img-back">
+                        <img src="./assets/acidparty.jpg" alt="profile image">
+                    </div>
+                    <div class="img-back-bottom-row">
+                        <div class="img-col">
+                            <a href=#><img src="./assets/me.jpg" alt="profile image"></a>
+                        </div>
+                        <div class="space-div"></div>                            
+                    </div>
+                </div>
+
+                <form class="modal-form" method="post">
+                    <div class="form-element input" key="1">
+                        <label for="fname">Name</label>
+                        <input class="box-input" id="fname" type="input" placeholder="">                    
+                    </div>
+                    <div class="form-element input" key="1">
+                        <label for="fBio">Bio</label>
+                        <input class="box-input" id="fBio" type="input" placeholder="">                    
+                    </div>
+                    <div class="form-element input" key="1">
+                        <label for="fLocation">Location</label>
+                        <input class="box-input" id="fLocation" type="input" placeholder="">                    
+                    </div>
+                    <div class="form-element input" key="1">
+                        <label for="fWebsite">Website</label>
+                        <input class="box-input" id="fWebsite" type="input" placeholder="">                    
+                    </div>                
+                </form>
+                <div class="footer">&nbsp;</div>
+            </div>
+        </div>
+
+        
+
+
+        <div class="templates">
+            <!-- start of template -->
+            <template id="feedItemTemplate">
+                <div class="feed-item">
+                    <div class="img-col">
+                        <a href=#><img id="img-col-img" src="./assets/deri.jpg" alt="profile image"></a>
+                    </div>
+                    <div class="story-col">
+                        <div class="top-title">
+                            <span class="name" id="top-title-name"> מכלוף</span>
+                            <span class="more" id="top-title-more"> @KAAN_NEWS</span>
+                            <span class="more" id="top-title-time"> . 8m</span>
+                        </div>
+                        <div class="description" id="story-col-text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni saepe voluptates sequi quisquam illo, modi consequatur culpa enim animi ipsam ex possimus doloremque? Ipsum corporis officiis ut autem vitae deleniti.
+                        </div>
+
+                        <div class="feed-item-footer">
+                            <div class="icone-list">
+                                <div class="icon-e"><a href=#><img src="./assets/comment.svg" alt="comment ..."></a></div>
+                                <div class="icon-e"><a href=#><img src="./assets/love.svg" alt="recycel ..."></a></div>
+                                <div class="icon-e"><a href=#><img src="./assets/love.svg" alt="love ..."></a></div>
+                                <div class="icon-e"><a href=#><img src="./assets/upload.svg" alt="upload ..."></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </template>    
+            <!-- end of template -->
+
+
+        </div>
        
     </body>
 </html>

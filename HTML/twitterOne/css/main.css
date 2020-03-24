@@ -14,6 +14,11 @@ BODY {
 .main .naviation-wrapper {
   flex-grow: 0.5;
 }
+.main .profile-wrapper {
+  display: none;
+  flex-grow: 2;
+  border: 1px solid #E6ECF0;
+}
 .main .news-feed-wrapper {
   flex-grow: 2;
   border: 1px solid #E6ECF0;
@@ -21,7 +26,13 @@ BODY {
 .main .trends-wrapper {
   flex-grow: 1;
 }
-.main .button {
+@media only screen and (max-width: 599px) {
+  .main .button {
+    color: #96A3AE;
+  }
+}
+
+.button {
   background-color: #0000FF;
   border: none;
   border-radius: 9999px;
@@ -32,19 +43,23 @@ BODY {
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
+  outline: none;
 }
-.main .button:hover {
+.button:hover {
   background-color: #8ED0F9;
 }
-.main .tweeter-logo {
+.button:active {
+  background-color: #0000FF;
+}
+
+.tweeter-logo {
   color: #1AA1F2;
   width: 40px;
   fill: #1AA1F2;
 }
-@media only screen and (max-width: 599px) {
-  .main .button {
-    color: #96A3AE;
-  }
+
+.templates {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
