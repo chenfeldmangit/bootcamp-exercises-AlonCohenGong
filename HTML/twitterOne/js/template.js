@@ -1,3 +1,11 @@
+ let profile = {
+     id: 'aloncon',
+     name: 'Alon Rambo 3',
+     bio: 'ddddd',
+     location: 'Israel',
+     website: 'http://elcogem.com',
+ };
+
  const tweete = [
     
     {
@@ -59,6 +67,41 @@
 ];
 
 window.onload = function() {
+    const fName = document.querySelector("#fname");
+    fName.value = profile.name; 
+    const fBio = document.querySelector("#fBio");
+    fBio.value = profile.bio; 
+    const fLocation = document.querySelector("#fLocation");
+    fLocation.value = profile.location; 
+    const fWebsite = document.querySelector("#fWebsite");
+    fWebsite.value = profile.website;
+    
+    let profileTmp = Object.assign({}, profile);
+    //add events
+    var event = new Event('input');
+    fName.addEventListener('input', (e) => {
+        profileTmp.name = e.target.value;
+    }, false);
+    fBio.addEventListener('input', (e) => {
+        profileTmp.bio = e.target.value;
+    }, false);
+    fLocation.addEventListener('input', (e) => {
+        profileTmp.location = e.target.value;
+    }, false);
+    fWebsite.addEventListener('input', (e) => {
+        profileTmp.website = e.target.value;
+    }, false);
+    // Save button event
+    const profileSaveButton = document.querySelector("#profileSaveButton");
+    profileSaveButton.addEventListener('click', (e) => {
+        //update json obj
+       profile = {...profileTmp}; 
+       editProfileCloseHandler(); //close Modal.
+    });
+
+
+    fName.dispatchEvent(event);
+    
 
 if ('content' in document.createElement('template')) {
 
