@@ -78,6 +78,15 @@
      
 
     .story-col {
+        width: 100%;
+        .top-title-right {
+            cursor: pointer;
+            font-weight: 600;
+            color: red;
+        }
+        .top-title-right {
+            float: right;
+        }
         .top-title .name{
             font-weight: bold;
         }
