@@ -49,14 +49,10 @@
   border-radius: 50%;
 }
 .news-feed-wrapper .feed-item-footer .icon-e img {
-  width: 14px;
-}
-.news-feed-wrapper .feed-item-footer .icon-e .liked img {
-  font-size: 0.7em;
-  filter: invert(95%) sepia(100%) saturate(5%) hue-rotate(-70deg) brightness(50%) contrast(93%);
+  width: 15px;
 }
 .news-feed-wrapper .feed-item-footer .icon-e .liked {
-  border: 1px solid red;
+  width: 300px;
 }
 .news-feed-wrapper .story-col .top-title .name {
   font-weight: bold;

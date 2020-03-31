@@ -66,7 +66,12 @@
 
 ];
 
-window.onload = function() {
+function loadTweets(objArr) {
+    console.log('loadTweets');
+ localStorage.setItem("tweeter-tweets", JSON.stringify(objArr));
+}
+
+function loadProfileForm(){
     const fName = document.querySelector("#fname");
     fName.value = profile.name; 
     const fBio = document.querySelector("#fBio");
@@ -75,6 +80,7 @@ window.onload = function() {
     fLocation.value = profile.location; 
     const fWebsite = document.querySelector("#fWebsite");
     fWebsite.value = profile.website;
+   
     
     let profileTmp = Object.assign({}, profile);
     //add events
@@ -94,26 +100,72 @@ window.onload = function() {
     // Save button event
     const profileSaveButton = document.querySelector("#profileSaveButton");
     profileSaveButton.addEventListener('click', (e) => {
+        console.log('save profile');
         //update json obj
        profile = {...profileTmp}; 
        editProfileCloseHandler(); //close Modal.
     });
+}
 
+function addTweet() {
+        //tweet event + tweet button
+        const newsTextarea = document.querySelector("#news-textarea");
+        const tweetButton = document.querySelector("#tweet-button");
+       tweetButton.addEventListener('click', (e)=> {
+           const tweeteLocaStorage = JSON.parse(localStorage.getItem('tweeter-tweets'));
+           this.console.log('event',newsTextarea.value);
+           if(newsTextarea.value!=""){
+               let tweeteLocaStorageTmp = [
+                   {
+                       'user': 'alon.myself',
+                       'name': 'rambo 3',
+                       'from': 'rweet_text_area',
+                       'time': '1sec',        
+                       'id': 'alonconmyself',
+                       'img': 'https://pbs.twimg.com/profile_images/1227307215079563264/RFhjEBVm_400x400.jpg',
+                       'text': 'tweet text: ' + newsTextarea.value,
+                       },
+                       ...tweeteLocaStorage,
+                   ]
+   
+                   //localStorage.setItem("tweeter-tweets", JSON.stringify(tweeteLocaStorageTmp));
+                   loadTweets(tweeteLocaStorageTmp)
+                   buildTweetsList();
+   
+                   //clean text area
+                   newsTextarea.value = "";
+   
+           }
+       })
+   
+}
 
-    fName.dispatchEvent(event);
-    
+function likeClick(id) {
+ console.log('likeClick',id);
+ const likeEle = document.querySelector("#"+id);
+ console.log('likeClick',id, likeEle);
+ var classAttr = document.createAttribute("class");
+ classAttr.value = " liked";
+ likeEle.setAttributeNode(classAttr);
+}
 
-if ('content' in document.createElement('template')) {
-
-    // Instantiate the table with the existing HTML tbody
-    // and the row with the template
+function buildTweetsList(){
     var template = document.querySelector('#feedItemTemplate');
 
     // Clone the new row and insert it into the table
+        const tweeteLocaStorage = JSON.parse(localStorage.getItem('tweeter-tweets'));
+        console.log('buildTweetsList] tweeteLocaStorage', tweeteLocaStorage);
+        var tbody = document.querySelector("#feed-item-template");
+        var tbodyNewsFeed = document.querySelector("#news-feed-item-template");
 
-        tweete.forEach(element => {
+        //tbodyNewsFeed.replaceChild(tweeteLocaStorage, tbodyNewsFeed);
+        while (tbodyNewsFeed.firstChild) {
+            tbodyNewsFeed.removeChild(tbodyNewsFeed.firstChild)
+          }
+        
+        let indexKey = 1;  
+        tweeteLocaStorage.forEach(element => {
             console.log(element);
-            var tbody = document.querySelector("#feed-item-template");
             var clone = template.content.cloneNode(true);
             var img = clone.querySelectorAll("#img-col-img");
             img[0].src = element.img;
@@ -125,12 +177,42 @@ if ('content' in document.createElement('template')) {
             time[0].textContent  = element.time;
             var text = clone.querySelectorAll("#story-col-text");
             text[0].textContent  = element.text;
-        
-            tbody.appendChild(clone);
-        
-        
+
+            //like
+            var likeDivA = clone.querySelectorAll("#divlikeid > a");
+            var likeDiv = clone.querySelectorAll("#divlikeid");
+            var aTagAttr = document.createAttribute("id");
+            let id= 'like_click'+indexKey;
+            aTagAttr.value = id; 
+            likeDivA[0].setAttributeNode(aTagAttr); 
+            //var aTagonClickAttr = document.createAttribute("onclick");
+            //aTagonClickAttr.value = "likeClick('event')" 
+            likeDiv[0].onclick = function() {likeClick(id);}
+        //onclick="likeClick(event)"
+
+            //tbody.appendChild(clone);
+            tbodyNewsFeed.appendChild(clone);
+           
+            indexKey+=1;
         });
 
+}    
+
+window.onload = function() {
+    //on load call functions
+    //load to local storage
+    loadTweets(tweete);
+    loadProfileForm();
+    addTweet()
+
+
+    //fName.dispatchEvent(event);    
+
+if ('content' in document.createElement('template')) {
+
+    // Instantiate the table with the existing HTML tbody
+    // and the row with the template
+    buildTweetsList();
 } else {
     console.log('not supported');
     // Find another way to add the rows to the table because 

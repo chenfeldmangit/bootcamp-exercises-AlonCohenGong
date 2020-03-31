@@ -64,8 +64,18 @@
     }
 
     .feed-item-footer .icon-e img {
-        width: 15px;
-    } 
+        width: 14px;
+    }
+    .feed-item-footer .icon-e .liked img{
+        //filter: brightness(0.5) sepia(1) hue-rotate(-70deg) saturate(5);
+        font-size: 0.7em;
+        filter: invert(95%) sepia(100%) saturate(5%) hue-rotate(-70deg) brightness(50%) contrast(93%);
+    }
+    .feed-item-footer .icon-e .liked{
+        border: 1px solid red;
+    }
+    
+     
 
     .story-col {
         .top-title .name{

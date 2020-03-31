@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="./css/modal.css">
 
         <script type="text/javascript" src="./js/myScripts.js"></script>
+        <script type="text/javascript" src="./js/objects.js"></script>
         <script type="text/javascript" src="./js/template.js"></script>
     </head>
     <body>
@@ -141,13 +142,18 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="button">Tweeet</button>
+                                    <button class="button" id="tweet-button">Tweeet</button>
                                 </div>
                             </div>
                         </div>
                         
                     </div>
                     <!-- end of new box header -->
+                                <!-- start of template -->
+                    <div id="news-feed-item-template">
+                
+                    </div>
+
                     <div class="feed-item ">
                         <div class="img-col">
                             <a href=#><img src="./assets/deri.jpg" alt="profile image"></a>
@@ -368,8 +374,8 @@
                         <div class="feed-item-footer">
                             <div class="icone-list">
                                 <div class="icon-e"><a href=#><img src="./assets/comment.svg" alt="comment ..."></a></div>
-                                <div class="icon-e"><a href=#><img src="./assets/love.svg" alt="recycel ..."></a></div>
-                                <div class="icon-e"><a href=#><img src="./assets/love.svg" alt="love ..."></a></div>
+                                <div class="icon-e"><a href=#><img src="./assets/upload.svg" alt="recycel ..."></a></div>
+                                <div class="icon-e" id="divlikeid"><a href="javascript:;" id="123"><img src="./assets/love.svg" alt="love ..."></a></div>
                                 <div class="icon-e"><a href=#><img src="./assets/upload.svg" alt="upload ..."></a></div>
                             </div>
                         </div>
